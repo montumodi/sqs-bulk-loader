@@ -1,0 +1,14 @@
+integration
+node_modules
+.tmp
+.idea
+.sass-cache
+.eslintcache
+npm-debug.log
+coverage.html
+.vscode
+.history
+.npmrc
+coverage
+.coveralls.yml
+package-lock.json
