@@ -1,11 +1,15 @@
 const aws = require("aws-sdk");
 const BulkLoader = require("./bulkLoader");
 
-const sqsClient = new aws.SQS();
-const bulkLoader = new BulkLoader(sqsClient);
+function getSqsBulkUploader(client) {
+  const sqsClient = client || new aws.SQS();
+  const bulkLoader = new BulkLoader(sqsClient);
 
-module.exports = {
-  "sendBatchedMessages": bulkLoader.sendBatchedMessages.bind(bulkLoader),
-  "sendBatchedMessagesInParallel": bulkLoader.sendBatchedMessagesInParallel.bind(bulkLoader)
-};
+  return {
+    "sendBatchedMessages": bulkLoader.sendBatchedMessages.bind(bulkLoader),
+    "sendBatchedMessagesInParallel": bulkLoader.sendBatchedMessagesInParallel.bind(bulkLoader)
+  };
+}
+
+module.exports = getSqsBulkUploader;
 

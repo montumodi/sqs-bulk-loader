@@ -1,4 +1,4 @@
-# SQS Bulk Loader
+# AWS SQS Bulk Loader
 
 A set of functions to help sending bulk messages in sequence or parallel to AWS SQS.
 
