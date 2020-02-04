@@ -1,0 +1,53 @@
+{
+  "name": "sqs-bulk-loader",
+  "version": "0.0.1",
+  "description": "A set of functions to help sending bulk messages in sequence or parallel to AWS SQS",
+  "main": "src/index.js",
+  "scripts": {
+    "cover": "istanbul cover ./node_modules/@hapi/lab/bin/lab ./test --leaks",
+    "pretest": "eslint --cache \"src/**/*.js\" \"test/**/*.js\"",
+    "coveralls": "cat ./coverage/lcov.info | node ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
+    "test": "./node_modules/@hapi/lab/bin/lab ./test/ -v -S --assert @hapi/code --threshold 100 -p 1",
+    "lint": "./node_modules/.bin/eslint ./src --fix",
+    "travis": "npm run test",
+    "premajor": "npm run test",
+    "major": "npm version major -m \"published to npm as v%s\" && git push --follow-tags && npm publish",
+    "preminor": "npm run test",
+    "minor": "npm version minor -m \"published to npm as v%s\" && git push --follow-tags && npm publish",
+    "prepatch": "npm run test",
+    "patch": "npm version patch -m \"published to npm as v%s\" && git push --follow-tags && npm publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/montumodi/sqs-bulk-loader.git"
+  },
+  "keywords": [
+    "mongo",
+    "mongodb",
+    "atlas",
+    "api",
+    "client",
+    "driver",
+    "nodejs",
+    "node"
+  ],
+  "author": "Ashish Modi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/montumodi/sqs-bulk-loader/issues"
+  },
+  "homepage": "https://github.com/montumodi/sqs-bulk-loader#readme",
+  "devDependencies": {
+    "@hapi/code": "^8.0.1",
+    "@hapi/lab": "^22.0.3",
+    "aws-sdk-mock": "^5.0.0",
+    "coveralls": "^3.0.9",
+    "eslint": "^6.8.0",
+    "istanbul": "^0.4.5"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.610.0",
+    "split-array": "^1.0.1",
+    "uuid": "^3.4.0"
+  }
+}
