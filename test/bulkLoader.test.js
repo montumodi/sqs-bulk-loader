@@ -77,7 +77,7 @@ describe("bulkParallel method", () => {
         "sendMessageBatch": sinon.stub().returns({"promise": () => "resolved"})
       };
       const bulkLoader = new BulkLoader(mockClient);
-      const response = await bulkLoader.sendBatchedMessagesInParallel("url", moreThanTenItems);
+      const response = await bulkLoader.sendBatchedMessagesInParallel("url", moreThanTenItems, {"batchSize": 2});
       expect(response).to.equal(["resolved", "resolved"]);
       expect(mockClient.sendMessageBatch.calledTwice).to.be.true();
       expect(mockClient.sendMessageBatch.getCall(0).calledWith(expectedParamsWithTenMessages)).to.be.true();

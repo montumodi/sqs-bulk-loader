@@ -1,4 +1,5 @@
 const splitArray = require("split-array");
+const batchPromises = require("batch-promises");
 
 class BulkLoader {
   constructor(sqsClient) {
@@ -20,15 +21,21 @@ class BulkLoader {
     return responses;
   }
 
-  async sendBatchedMessagesInParallel(queueUrl, messages) {
+  async sendBatchedMessagesInParallel(queueUrl, messages, options) {
+
+    const defaultParams = {
+      "batchSize": 10
+    };
+    const customOptions = Object.assign({}, defaultParams, options);
+
     const spilttedArray = splitArray(messages, 10);
-    const responses = await Promise.all(spilttedArray.map(messageArray => {
+    const responses = await batchPromises(customOptions.batchSize, spilttedArray, messageArray => {
       const params = {
         "QueueUrl": queueUrl
       };
       params.Entries = messageArray;
       return this.sqsClient_.sendMessageBatch(params).promise();
-    }));
+    });
     return responses;
   }
 }
