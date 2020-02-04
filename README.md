@@ -83,6 +83,6 @@ Function - Sends the messages passed in batch of 10 parallely
 | --- | --- | --- | --- |
 | queueUrl | <code>String</code> |  | SQS queue url |
 | messages | <code>Array</code> |  | Array of messages as per `sendMessageBatch`'s params |
-| [options] | <code>Object</code> | <code>{}</code> | Optional object containing extra properties which will be passed to function. Currently it supports `batchSize` integer to control how many parallel requests to spawn. Default is 10 |
+| [options] | <code>Object</code> | <code>{"batchSize": 10}</code> | Optional object containing extra properties which will be passed to function. Currently it supports `batchSize` integer to control how many parallel requests to spawn. Default is 10 |
 
 More details - https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/SQS.html#sendMessageBatch-property
