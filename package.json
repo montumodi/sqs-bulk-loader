@@ -43,7 +43,7 @@
     "coveralls": "^3.0.9",
     "eslint": "^6.8.0",
     "istanbul": "^0.4.5",
-    "sinon": "^8.1.1"
+    "sinon": "^9.0.0"
   },
   "dependencies": {
     "aws-sdk": "^2.615.0",
