@@ -2,7 +2,7 @@
 
 A set of functions to help sending bulk messages in sequence or parallel to AWS SQS.
 
-
+[![Known Vulnerabilities](https://snyk.io/test/github/montumodi/sqs-bulk-loader/badge.svg)](https://snyk.io/test/github/montumodi/sqs-bulk-loader)
 [![Coverage Status](https://coveralls.io/repos/github/montumodi/sqs-bulk-loader/badge.svg?branch=master)](https://coveralls.io/github/montumodi/sqs-bulk-loader?branch=master)
 [![Build Status](https://travis-ci.com/montumodi/sqs-bulk-loader.svg?branch=master)](https://travis-ci.com/montumodi/sqs-bulk-loader)
 [![Deps](https://david-dm.org/montumodi/sqs-bulk-loader.svg)](https://david-dm.org/montumodi/sqs-bulk-loader#info=dependencies)
