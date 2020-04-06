@@ -11,4 +11,3 @@ coverage.html
 .npmrc
 coverage
 .coveralls.yml
-package-lock.json
