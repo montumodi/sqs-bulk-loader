@@ -46,7 +46,7 @@
     "sinon": "^9.0.0"
   },
   "dependencies": {
-    "aws-sdk": "^2.668.0",
+    "aws-sdk": "^2.669.0",
     "batch-promises": "0.0.3",
     "split-array": "^1.0.1"
   }
