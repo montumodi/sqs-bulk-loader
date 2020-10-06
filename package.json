@@ -47,7 +47,6 @@
   },
   "dependencies": {
     "aws-sdk": "^2.747.0",
-    "batch-promises": "0.0.3",
-    "split-array": "^1.0.1"
+    "batch-promises": "0.0.3"
   }
 }

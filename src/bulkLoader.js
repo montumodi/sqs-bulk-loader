@@ -1,4 +1,4 @@
-const splitArray = require("split-array");
+const {chunk} = require("./chunk");
 const batchPromises = require("batch-promises");
 
 class BulkLoader {
@@ -7,12 +7,12 @@ class BulkLoader {
   }
 
   async sendBatchedMessages(queueUrl, messages) {
-    const spilttedArray = splitArray(messages, 10);
+    const splittedArray = chunk(messages, 10);
     const responses = [];
     const params = {
       "QueueUrl": queueUrl
     };
-    for (const messageArray of spilttedArray) {
+    for (const messageArray of splittedArray) {
       params.Entries = messageArray;
       // eslint-disable-next-line no-await-in-loop
       const response = await this.sqsClient_.sendMessageBatch(params).promise();
@@ -28,8 +28,8 @@ class BulkLoader {
     };
     const customOptions = Object.assign({}, defaultParams, options);
 
-    const spilttedArray = splitArray(messages, 10);
-    const responses = await batchPromises(customOptions.batchSize, spilttedArray, messageArray => {
+    const splittedArray = chunk(messages, 10);
+    const responses = await batchPromises(customOptions.batchSize, splittedArray, messageArray => {
       const params = {
         "QueueUrl": queueUrl
       };
