@@ -24,7 +24,7 @@ const expectedParamsWithTenMessages = {
 
 describe("bulkSequence method", () => {
 
-  describe("When called with 10 items", async () => {
+  describe("When called with 10 items", () => {
     it("should return success", async () => {
       const mockClient = {
         "sendMessageBatch": sinon.stub().returns({"promise": () => "resolved"})
@@ -37,7 +37,7 @@ describe("bulkSequence method", () => {
     });
   });
 
-  describe("When called with more than 10 items", async () => {
+  describe("When called with more than 10 items", () => {
     it("should return success", async () => {
       const moreThanTenItems = cloneDeep(tenMessages);
       moreThanTenItems.push({"msg11": "val11"});
@@ -56,7 +56,7 @@ describe("bulkSequence method", () => {
 
 describe("bulkParallel method", () => {
 
-  describe("When called with 10 items", async () => {
+  describe("When called with 10 items", () => {
     it("should return success", async () => {
       const mockClient = {
         "sendMessageBatch": sinon.stub().returns({"promise": () => "resolved"})
@@ -69,7 +69,7 @@ describe("bulkParallel method", () => {
     });
   });
 
-  describe("When called with more than 10 items", async () => {
+  describe("When called with more than 10 items", () => {
     it("should return success", async () => {
       const moreThanTenItems = cloneDeep(tenMessages);
       moreThanTenItems.push({"msg11": "val11"});

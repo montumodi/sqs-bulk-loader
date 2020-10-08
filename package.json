@@ -39,14 +39,14 @@
   "homepage": "https://github.com/montumodi/sqs-bulk-loader#readme",
   "devDependencies": {
     "@hapi/code": "^8.0.2",
-    "@hapi/lab": "^23.0.0",
+    "@hapi/lab": "^24.0.0",
     "coveralls": "^3.1.0",
     "eslint": "^7.10.0",
     "istanbul": "^0.4.5",
-    "sinon": "^9.1.0"
+    "sinon": "^9.2.0"
   },
   "dependencies": {
-    "aws-sdk": "^2.767.0",
+    "aws-sdk": "^2.769.0",
     "batch-promises": "0.0.3"
   }
 }
