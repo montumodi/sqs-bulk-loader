@@ -41,12 +41,12 @@
     "@hapi/code": "^8.0.2",
     "@hapi/lab": "^24.1.0",
     "coveralls": "^3.1.0",
-    "eslint": "^7.14.0",
+    "eslint": "^7.15.0",
     "istanbul": "^0.4.5",
-    "sinon": "^9.2.1"
+    "sinon": "^9.2.2"
   },
   "dependencies": {
-    "aws-sdk": "^2.802.0",
+    "aws-sdk": "^2.811.0",
     "batch-promises": "0.0.3"
   }
 }
