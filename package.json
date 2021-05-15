@@ -29,7 +29,8 @@
     "parallel",
     "sequence",
     "nodejs",
-    "node"
+    "node",
+    "send"
   ],
   "author": "Ashish Modi",
   "license": "ISC",
