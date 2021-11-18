@@ -16,6 +16,8 @@ A set of functions to help sending bulk messages in sequence or parallel to AWS 
 npm install sqs-bulk-loader
 ```
 
+`aws-sdk` is peer dependency for this package. Make sure it is installed.
+
 ## Running the tests
 
 `npm test`

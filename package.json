@@ -21,6 +21,10 @@
     "type": "git",
     "url": "git+https://github.com/montumodi/sqs-bulk-loader.git"
   },
+  "files": [
+    "src",
+    "README.md"
+  ],
   "keywords": [
     "aws",
     "sqs",
@@ -41,13 +45,16 @@
   "devDependencies": {
     "@hapi/code": "^8.0.3",
     "@hapi/lab": "^24.1.1",
+    "aws-sdk": "^2.1031.0",
     "coveralls": "^3.1.0",
     "eslint": "^7.23.0",
     "istanbul": "^0.4.5",
     "sinon": "^10.0.0"
   },
   "dependencies": {
-    "aws-sdk": "^2.881.0",
     "batch-promises": "0.0.3"
+  },
+  "peerDependencies": {
+    "aws-sdk": "^2.0.0"
   }
 }
