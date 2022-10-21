@@ -6,7 +6,7 @@
   "scripts": {
     "pretest": "eslint --cache \"src/**/*.js\" \"test/**/*.js\"",
     "coveralls": "cat ./coverage/lcov.info | node ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
-    "test": "./node_modules/@hapi/lab/bin/lab ./test/ -v -S --assert @hapi/code --threshold 100 -p 1",
+    "test": "./node_modules/@hapi/lab/bin/lab -I 'BroadcastChannel,structuredClone,DOMException,atob,btoa,Blob,Performance,performance,ReadableStream,ReadableStreamDefaultReader,ReadableStreamBYOBReader,ReadableStreamBYOBRequest,ReadableByteStreamController,ReadableStreamDefaultController,TransformStream,TransformStreamDefaultController,WritableStream,WritableStreamDefaultWriter,WritableStreamDefaultController,ByteLengthQueuingStrategy,CountQueuingStrategy,TextEncoderStream,TextDecoderStream,CompressionStream,DecompressionStream,fetch,FormData,Headers,Request,Response,Symbol(undici.globalDispatcher.1)' ./test/ -v -S --assert @hapi/code --threshold 100 -p 1",
     "lint": "./node_modules/.bin/eslint ./src --fix",
     "travis": "npm run test",
     "premajor": "npm run test",
