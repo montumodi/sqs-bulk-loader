@@ -2,11 +2,15 @@
 
 A set of functions to help sending bulk messages in sequence or parallel to AWS SQS.
 
+## Migration steps from Version 3 to Version 4
+
+  - Add `@aws-sdk/client-sqs` as peer dependency instead of `aws-sdk`
+  - Rest of the code should work as it is. The response structure has changed slightly.
+    More information can be found [here](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sqs/interfaces/sendmessagebatchcommandoutput.html)
+
 [![Known Vulnerabilities](https://snyk.io/test/github/montumodi/sqs-bulk-loader/badge.svg)](https://snyk.io/test/github/montumodi/sqs-bulk-loader)
 [![Coverage Status](https://coveralls.io/repos/github/montumodi/sqs-bulk-loader/badge.svg?branch=master)](https://coveralls.io/github/montumodi/sqs-bulk-loader?branch=master)
 [![Build Status](https://travis-ci.com/montumodi/sqs-bulk-loader.svg?branch=master)](https://travis-ci.com/montumodi/sqs-bulk-loader)
-[![Deps](https://david-dm.org/montumodi/sqs-bulk-loader.svg)](https://david-dm.org/montumodi/sqs-bulk-loader#info=dependencies)
-[![devDependency Status](https://david-dm.org/montumodi/sqs-bulk-loader/dev-status.svg)](https://david-dm.org/montumodi/sqs-bulk-loader#info=devDependencies)
 
 [![NPM](https://nodei.co/npm/sqs-bulk-loader.png?downloads=true)](https://www.npmjs.com/package/sqs-bulk-loader/)
 
@@ -16,7 +20,13 @@ A set of functions to help sending bulk messages in sequence or parallel to AWS 
 npm install sqs-bulk-loader
 ```
 
-`aws-sdk` is peer dependency for this package. Make sure it is installed.
+`@aws-sdk/client-sqs` is peer dependency for this package. Make sure it is installed.
+
+To use `aws-sdk` version 2, please use [version 3](https://www.npmjs.com/package/sqs-bulk-loader/v/3.5.0) of this package.
+
+```
+npm install sqs-bulk-loader@3
+```
 
 ## Running the tests
 
@@ -50,11 +60,11 @@ sendBatchedMessages("someQueueUrl", messages)
 
 ```
 
-In case you need to inject the `aws-sdk` with custom settings. It can be done like this
+In case you need to inject the `@aws-sdk/client-sqs` with custom settings. It can be done like this
 
 ```js
-const aws = require("aws-sdk");
-const sqsClient = new aws.SQS();
+const {SQSClient} = require("@aws-sdk/client-sqs");
+const sqsClient = new SQSClient({"region": "eu-west-2"});
 const {sendBatchedMessages, sendBatchedMessagesInParallel} = require("sqs-bulk-loader")(sqsClient);
 ```
 
@@ -72,7 +82,7 @@ Function - Sends the messages passed in batch of 10 sequentially
 | queueUrl | <code>String</code> |  | SQS queue url |
 | messages | <code>Array</code> |  | Array of messages as per `sendMessageBatch`'s params |
 
-More details - https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/SQS.html#sendMessageBatch-property
+More details - https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sqs/interfaces/sendmessagebatchcommandinput.html
 
 ### sendBatchedMessagesInParallel
 
@@ -87,4 +97,4 @@ Function - Sends the messages passed in batch of 10 parallely
 | messages | <code>Array</code> |  | Array of messages as per `sendMessageBatch`'s params |
 | [options] | <code>Object</code> | <code>{"batchSize": 10}</code> | Optional object containing extra properties which will be passed to function. Currently it supports `batchSize` integer to control how many parallel requests to spawn. Default is 10 |
 
-More details - https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/SQS.html#sendMessageBatch-property
+More details - https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sqs/interfaces/sendmessagebatchcommandinput.html
