@@ -6,7 +6,7 @@
   "scripts": {
     "pretest": "eslint --cache \"src/**/*.js\" \"test/**/*.js\"",
     "coveralls": "cat ./coverage/lcov.info | node ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
-    "test": "./node_modules/@hapi/lab/bin/lab -I 'BroadcastChannel,structuredClone,DOMException,atob,btoa,Blob,Performance,performance,ReadableStream,ReadableStreamDefaultReader,ReadableStreamBYOBReader,ReadableStreamBYOBRequest,ReadableByteStreamController,ReadableStreamDefaultController,TransformStream,TransformStreamDefaultController,WritableStream,WritableStreamDefaultWriter,WritableStreamDefaultController,ByteLengthQueuingStrategy,CountQueuingStrategy,TextEncoderStream,TextDecoderStream,CompressionStream,DecompressionStream,fetch,FormData,Headers,Request,Response,Symbol(undici.globalDispatcher.1)' ./test/ -v -S --assert @hapi/code --threshold 100 -p 1",
+    "test": "./node_modules/@hapi/lab/bin/lab -I '__extends,__assign,__rest,__decorate,__param,__esDecorate,__runInitializers,__propKey,__setFunctionName,__metadata,__awaiter,__generator,__exportStar,__createBinding,__values,__read,__spread,__spreadArrays,__spreadArray,__await,__asyncGenerator,__asyncDelegator,__asyncValues,__makeTemplateObject,__importStar,__importDefault,__classPrivateFieldGet,__classPrivateFieldSet,__classPrivateFieldIn' ./test/ -v -S --assert @hapi/code --threshold 100 -p 1",
     "lint": "./node_modules/.bin/eslint ./src --fix",
     "travis": "npm run test",
     "premajor": "npm run test",
@@ -42,17 +42,17 @@
   },
   "homepage": "https://github.com/montumodi/sqs-bulk-loader#readme",
   "devDependencies": {
-    "@hapi/code": "^8.0.3",
-    "@hapi/lab": "^24.1.1",
-    "aws-sdk": "^2.1031.0",
-    "coveralls": "^3.1.0",
-    "eslint": "^7.23.0",
-    "sinon": "^10.0.0"
+    "@aws-sdk/client-sqs": "^3.272.0",
+    "@hapi/code": "^9.0.3",
+    "@hapi/lab": "^25.1.2",
+    "coveralls": "^3.1.1",
+    "eslint": "^8.34.0",
+    "lodash": "^4.17.21"
   },
   "dependencies": {
     "batch-promises": "0.0.3"
   },
   "peerDependencies": {
-    "aws-sdk": "^2.0.0"
+    "@aws-sdk/client-sqs": "^3.0.0"
   }
 }

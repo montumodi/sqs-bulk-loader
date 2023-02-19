@@ -2,8 +2,9 @@ const {chunk} = require("./chunk");
 const batchPromises = require("batch-promises");
 
 class BulkLoader {
-  constructor(sqsClient) {
+  constructor(sqsClient, SendMessageBatchCommand) {
     this.sqsClient_ = sqsClient;
+    this.sendMessageBatchCommand_ = SendMessageBatchCommand;
   }
 
   async sendBatchedMessages(queueUrl, messages) {
@@ -14,8 +15,9 @@ class BulkLoader {
     };
     for (const messageArray of splittedArray) {
       params.Entries = messageArray;
+      const command = new this.sendMessageBatchCommand_(params);
       // eslint-disable-next-line no-await-in-loop
-      const response = await this.sqsClient_.sendMessageBatch(params).promise();
+      const response = await this.sqsClient_.send(command);
       responses.push(response);
     }
     return responses;
@@ -34,7 +36,8 @@ class BulkLoader {
         "QueueUrl": queueUrl
       };
       params.Entries = messageArray;
-      return this.sqsClient_.sendMessageBatch(params).promise();
+      const command = new this.sendMessageBatchCommand_(params);
+      return this.sqsClient_.send(command);
     });
     return responses;
   }
