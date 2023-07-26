@@ -6,7 +6,7 @@
   "scripts": {
     "pretest": "eslint --cache \"src/**/*.js\" \"test/**/*.js\"",
     "coveralls": "cat ./coverage/lcov.info | node ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
-    "test": "./node_modules/@hapi/lab/bin/lab -I '__extends,__assign,__rest,__decorate,__param,__esDecorate,__runInitializers,__propKey,__setFunctionName,__metadata,__awaiter,__generator,__exportStar,__createBinding,__values,__read,__spread,__spreadArrays,__spreadArray,__await,__asyncGenerator,__asyncDelegator,__asyncValues,__makeTemplateObject,__importStar,__importDefault,__classPrivateFieldGet,__classPrivateFieldSet,__classPrivateFieldIn' ./test/ -v -S --assert @hapi/code --threshold 100 -p 1",
+    "test": "./node_modules/@hapi/lab/bin/lab -I '__extends,__assign,__rest,__addDisposableResource,__disposeResources,__decorate,__param,__esDecorate,__runInitializers,__propKey,__setFunctionName,__metadata,__awaiter,__generator,__exportStar,__createBinding,__values,__read,__spread,__spreadArrays,__spreadArray,__await,__asyncGenerator,__asyncDelegator,__asyncValues,__makeTemplateObject,__importStar,__importDefault,__classPrivateFieldGet,__classPrivateFieldSet,__classPrivateFieldIn' ./test/ -v -S --assert @hapi/code --threshold 100 -p 1",
     "lint": "./node_modules/.bin/eslint ./src --fix",
     "travis": "npm run test",
     "premajor": "npm run test",
