@@ -1,4 +1,6 @@
 name: Node.js Package
+permissions:
+  contents: write
 
 on:
   workflow_dispatch:
