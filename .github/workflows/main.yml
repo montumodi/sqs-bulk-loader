@@ -1,4 +1,6 @@
 name: Only Publish Minor
+permissions:
+  contents: read
 
 on:
   workflow_dispatch:
